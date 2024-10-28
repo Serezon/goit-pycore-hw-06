@@ -16,7 +16,7 @@ class Phone(Field):
         self.value = self.process(value)
 
     def process(self, value):
-        if not all(c.isdigit() for c in value):
+        if len(value) != 10 or not all(c.isdigit() for c in value):
             raise ValueError("Phone number must be 10 digits long")
         return value
 
